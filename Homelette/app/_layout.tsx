@@ -1,9 +1,15 @@
-import { Stack } from "expo-router";
+// app/_layout.tsx
+import React from "react";
+import { Slot } from "expo-router";
+import { AuthProvider } from "../contexts/AuthContext";
+import { Provider as PaperProvider } from "react-native-paper";
 
 export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="index" />
-    </Stack>
+    <AuthProvider>
+      <PaperProvider>
+        <Slot />
+      </PaperProvider>
+    </AuthProvider>
   );
 }
